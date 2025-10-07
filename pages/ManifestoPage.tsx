@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { PlayIcon } from '../components/icons/PlayIcon';
-import { CubeIcon } from '../components/icons/CubeIcon';
+import { WobblyBoxIcon } from '../components/icons/WobblyBoxIcon';
 import { SparklesIcon } from '../components/icons/SparklesIcon';
 
 const ManifestoPage: React.FC = () => {
@@ -12,7 +12,7 @@ const ManifestoPage: React.FC = () => {
       text: 'Embracing the weird, the broken, and the happy accidents. The best ideas are found off the beaten path, and this workshop is a space dedicated to exploring them.',
     },
     {
-      icon: CubeIcon,
+      icon: WobblyBoxIcon,
       title: 'Sound is Half the Experience',
       text: "From wobbly basslines to crunchy sound effects, audio isn't an afterthought—it's a core building block of emotion and atmosphere. Every project is an excuse to make noise.",
     },

@@ -1,0 +1,10 @@
+import React from 'react';
+
+export const WobblyBoxIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg viewBox="0 0 253 244" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" {...props}>
+    <path d="M15,14.25c67.118,-35.584 229.515,-3.77 237.75,83.25c4.784,50.559 -106.05,151.051 -168.532,146.25c-86.455,-6.644 -99.637,-213.372 -69.218,-229.5Z" fill="#334155" />
+    <path d="M147.926,14.25l-123.952,4.5l97.496,123l126.03,-51.75l-99.574,-75.75Z" fill="#1168bc" />
+    <path d="M117.772,144.457l-97.522,-121.957l4.788,112.901l58.777,99.967l33.957,-90.911Z" fill="#fff" />
+    <path d="M245.689,94.751l-123.487,49.761l-35.379,91.738l93.977,-63.669l64.889,-77.83Z" fill="#fff" />
+  </svg>
+);

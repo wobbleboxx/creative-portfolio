@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { CubeIcon } from './icons/CubeIcon';
+import { WobblyBoxIcon } from './icons/WobblyBoxIcon';
+import { WbWordmarkIcon } from './icons/WbWordmarkIcon';
 
 const Header: React.FC = () => {
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -13,9 +14,9 @@ const Header: React.FC = () => {
     <header className="bg-slate-900/80 backdrop-blur-md sticky top-0 z-10 border-b border-slate-700">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-3 text-xl font-bold text-slate-100 hover:text-indigo-400 transition-colors">
-            <CubeIcon className="w-6 h-6 text-indigo-500" />
-            <span>WobbleBoxx Workshop</span>
+          <Link to="/" className="flex items-center space-x-3 group">
+            <WobblyBoxIcon className="w-7 h-7 text-slate-100 group-hover:scale-110 transition-transform duration-300" />
+            <WbWordmarkIcon className="h-5 text-slate-100" />
           </Link>
           <nav className="flex items-center space-x-6">
             <NavLink to="/" className={navLinkClass} end>
