@@ -6,7 +6,7 @@ export const projects: Project[] = [
     title: 'Cosmic Plinko',
     category: Category.GAME,
     shortDescription: 'A High-Octane Descent into Neon Chaos.',
-    coverImage: '/images/cosmic_plinko.png',
+    coverImage: 'https://image2url.com/images/1759823451041-9b4d7959-9cab-4638-8e50-42e2788a9077.png',
     images: ['/images/cosmic-plinko-gallery-1.svg'],
     longDescription: `Ever wondered what would happen if you launched a pachinko machine into a synthwave black hole? You'd get Cosmic Plinko—an adrenaline-fueled arcade game that transforms the classic game of chance into a frantic test of skill, reflexes, and survival.
 
