@@ -4,7 +4,28 @@ import { projects } from '../data/projects';
 import { CATEGORY_STYLES } from '../constants';
 import NotFoundPage from './NotFoundPage';
 import { ArrowTopRightOnSquareIcon } from '../components/icons/ArrowTopRightOnSquareIcon';
-import { Category } from '../types';
+import { Category, Project } from '../types';
+
+const GAME_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M19,6H5C3.89,6 3,6.89 3,8V16C3,17.11 3.89,18 5,18H19C20.11,18 21,17.11 21,16V8C21,6.89 20.11,6 19,6M10,13H8V11H6V9H8V7H10V9H12V11H10V13M16,13H14V11H16V13M18,11H16V9H18V11Z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EGame Project%3C/text%3E%3C/svg%3E";
+const WRITING_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M18,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V4C20,2.9 19.1,2 18,2M18,20H6V4H7V12L9.5,10.5L12,12V4H18V20Z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EWriting Project%3C/text%3E%3C/svg%3E";
+const MUSIC_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M12,3v9.28c-0.47-0.17-0.97-0.28-1.5-0.28C8.01,12,6,14.01,6,16.5S8.01,21,10.5,21c2.31,0,4.2-1.75,4.45-4H15V6h4V3H12z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EMusic Project%3C/text%3E%3C/svg%3E";
+
+const getCoverImageSrc = (project: Project) => {
+  if (project.coverImage) {
+    return project.coverImage;
+  }
+
+  switch (project.category) {
+    case Category.GAME:
+      return GAME_PLACEHOLDER_SVG;
+    case Category.WRITING:
+      return WRITING_PLACEHOLDER_SVG;
+    case Category.MUSIC:
+      return MUSIC_PLACEHOLDER_SVG;
+    default:
+      return 'data:image/svg+xml,%3Csvg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="100%" height="100%" fill="%231e293b" /%3E%3C/svg%3E';
+  }
+};
 
 const ProjectDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,105 +40,117 @@ const ProjectDetailPage: React.FC = () => {
   const isDevlog = project.tags.includes('Devlog');
 
   return (
-    <div className="max-w-4xl mx-auto bg-slate-800 rounded-lg shadow-lg p-6 sm:p-8 lg:p-12">
+    <div className="max-w-4xl mx-auto animate-fade-in" style={{ opacity: 0 }}>
       <div className="mb-8">
         <Link to="/" className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors">
           &larr; Back to all projects
         </Link>
       </div>
 
-      <header className="mb-6 border-b border-slate-700 pb-6">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <span className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${categoryStyle.bg} ${categoryStyle.text}`}>
-              {project.category}
-            </span>
-            <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-100 sm:text-5xl">
-              {project.title}
-            </h1>
-          </div>
-          <div className="text-right flex-shrink-0">
-            <div className="text-slate-400 font-medium text-sm mb-2">
-                {project.releaseDate}
+      <div className="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
+        <div
+          className="relative h-96 bg-cover bg-center p-6 sm:p-8 lg:p-12 flex flex-col justify-end items-start"
+          style={{ backgroundImage: `url(${getCoverImageSrc(project)})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          <div className="relative z-10 w-full">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <span
+                  className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${categoryStyle.bg} ${categoryStyle.text}`}
+                >
+                  {project.category}
+                </span>
+                <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+                  {project.title}
+                </h1>
+              </div>
+              <div className="text-right flex-shrink-0">
+                <div className="text-slate-200 font-medium text-sm mb-2">
+                  {project.releaseDate}
+                </div>
+                {project.projectUrl && project.category === Category.GAME && (
+                  <a
+                    href={project.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors"
+                  >
+                    <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+                    {isDevlog ? 'Read Devlog' : 'Open in Fullscreen'}
+                  </a>
+                )}
+              </div>
             </div>
-            {project.projectUrl && project.category === Category.GAME && (
-              <a
-                href={project.projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors"
-              >
-                <ArrowTopRightOnSquareIcon className="h-5 w-5" />
-                {isDevlog ? 'Read Devlog' : 'Open in Fullscreen'}
-              </a>
-            )}
           </div>
         </div>
-      </header>
 
-      <div className="prose prose-lg max-w-none prose-slate prose-invert">
-        <p className="lead text-xl text-slate-300">{project.shortDescription}</p>
-        
-        {project.longDescription.split(/\n\s*\n/).map((paragraph, index) => (
-          <p key={index}>{paragraph.trim()}</p>
-        ))}
-      </div>
+        <div className="p-6 sm:p-8 lg:p-12">
+          <div className="prose prose-lg max-w-none prose-slate prose-invert">
+            <p className="lead text-xl text-slate-300">{project.shortDescription}</p>
+            
+            {project.longDescription.split(/\n\s*\n/).map((paragraph, index) => (
+              <p key={index}>{paragraph.trim()}</p>
+            ))}
+          </div>
 
-      {project.projectUrl && !isDevlog && (
-        <div className="mt-10">
-          <h2 className="text-2xl font-bold text-slate-200 mb-4">{isSoundCloud ? 'Listen Now' : 'Play It Live!'}</h2>
-          {isSoundCloud ? (
-             <iframe
-              width="100%"
-              height="300"
-              scrolling="no"
-              frameBorder="no"
-              allow="autoplay"
-              src={project.projectUrl}
-              title={`SoundCloud player for ${project.title}`}
-              className="rounded-lg shadow-md border border-slate-700"
-            ></iframe>
-          ) : (
-            <div className="aspect-video w-full">
-              <iframe
-                src={project.projectUrl}
-                title={`Live demo of ${project.title}`}
-                className="w-full h-full rounded-lg shadow-md border border-slate-700"
-                allowFullScreen
-              ></iframe>
+          {project.projectUrl && !isDevlog && (
+            <div className="mt-10">
+              <h2 className="text-2xl font-bold text-slate-200 mb-4">{isSoundCloud ? 'Listen Now' : 'Play It Live!'}</h2>
+              {isSoundCloud ? (
+                 <iframe
+                  width="100%"
+                  height="300"
+                  scrolling="no"
+                  frameBorder="no"
+                  allow="autoplay"
+                  src={project.projectUrl}
+                  title={`SoundCloud player for ${project.title}`}
+                  className="rounded-lg shadow-md border border-slate-700"
+                ></iframe>
+              ) : (
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={project.projectUrl}
+                    title={`Live demo of ${project.title}`}
+                    className="w-full h-full rounded-lg shadow-md border border-slate-700"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {project.images.length > 0 && (
+            <div className="mt-10">
+              <h2 className="text-2xl font-bold text-slate-200 mb-4">Gallery</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {project.images.map((image, index) => (
+                  <img 
+                    key={index} 
+                    src={image} 
+                    alt={`${project.title} screenshot ${index + 1}`}
+                    className="rounded-lg shadow-md object-cover w-full h-full" 
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {project.tags.length > 0 && (
+            <div className="mt-10 pt-6 border-t border-slate-700">
+              <h3 className="text-lg font-semibold text-slate-200 mb-3">Technologies & Skills</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map(tag => (
+                  <span key={tag} className="bg-slate-700 text-slate-300 px-3 py-1 text-sm font-medium rounded-full border border-slate-600">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           )}
         </div>
-      )}
-      
-      {project.images.length > 0 && (
-        <div className="mt-10">
-          <h2 className="text-2xl font-bold text-slate-200 mb-4">Gallery</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {project.images.map((image, index) => (
-              <img 
-                key={index} 
-                src={image} 
-                alt={`${project.title} screenshot ${index + 1}`}
-                className="rounded-lg shadow-md object-cover w-full h-full" 
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {project.tags.length > 0 && (
-        <div className="mt-10 pt-6 border-t border-slate-700">
-          <h3 className="text-lg font-semibold text-slate-200 mb-3">Technologies & Skills</h3>
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map(tag => (
-              <span key={tag} className="bg-slate-700 text-slate-300 px-3 py-1 text-sm font-medium rounded-full border border-slate-600">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

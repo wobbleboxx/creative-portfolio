@@ -6,7 +6,7 @@ export const projects: Project[] = [
     title: 'City Coin-Ops Devlog',
     category: Category.GAME,
     shortDescription: 'A development blog chronicling the creation of a new arcade-style game.',
-    coverImage: '',
+    coverImage: 'https://image2url.com/images/1759837979269-289c7025-8e05-4908-9823-991693b1fc62.png',
     images: [],
     longDescription: `Follow the journey of developing a new game from scratch. The City Coin-Ops devlog offers a behind-the-scenes look at the creative process, from initial concepts and design documents to programming challenges and art asset creation. This ongoing log provides insights into the world of indie game development.`,
     releaseDate: 'Ongoing',
@@ -41,7 +41,6 @@ Ready to test your mettle against the infinite? Sharpen your reflexes, manage yo
     title: 'The Last Scribe',
     category: Category.WRITING,
     shortDescription: 'A fantasy novella about a librarian tasked with preserving knowledge in a world that has forgotten how to read.',
-    coverImage: '',
     images: [],
     longDescription: `In a world where magic has replaced the written word, The Last Scribe tells the story of Elara, the final curator of the Great Library of Aethel. When a creeping magical blight begins to erase memories and histories, Elara must embark on a perilous journey to find the source of literacy and restore the world's collective past.
     
@@ -76,7 +75,6 @@ This story explores themes of cultural memory, the power of stories, and the con
     title: 'Synth Core',
     category: Category.MUSIC,
     shortDescription: 'An energetic electronic track focused on powerful synth melodies.',
-    coverImage: '',
     images: [],
     longDescription: `This track, "Synth Core," is a high-energy piece from WobbleBoxx. It features prominent, powerful synth melodies over a driving electronic beat, creating an intense and melodic experience for the listener.`,
     releaseDate: 'June 2013',
@@ -121,6 +119,7 @@ This story explores themes of cultural memory, the power of stories, and the con
     title: 'Happy Runtime',
     category: Category.MUSIC,
     shortDescription: 'A cheerful and quirky electronic tune with playful melodies and a bouncy rhythm.',
+    coverImage: 'https://image2url.com/images/1759839571931-77c6eea9-d661-435d-bf84-eb0eeacfe5f6.png',
     images: [],
     longDescription: `"Happy Runtime" is an upbeat and playful track from WobbleBoxx. It combines chiptune-inspired melodies with a driving electronic beat, resulting in a fun and energetic piece that feels both nostalgic and modern.`,
     releaseDate: 'October 2017',
