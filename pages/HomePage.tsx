@@ -24,11 +24,11 @@ const HomePage: React.FC = () => {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-          Welcome to My Workshop
+        <h1 className="text-4xl font-extrabold tracking-tight text-slate-100 sm:text-5xl">
+          WobbleBoxx Workshop
         </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-xl text-slate-600">
-          A collection of games, music, writing, and other creations.
+        <p className="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
+          Explorations in code, sound, and story.
         </p>
       </div>
 

@@ -1,4 +1,3 @@
-
 export enum Category {
   GAME = 'Game Development',
   MUSIC = 'Original Music',
@@ -11,7 +10,7 @@ export interface Project {
   title: string;
   category: Category;
   shortDescription: string;
-  coverImage: string;
+  coverImage?: string;
   images: string[];
   longDescription: string;
   releaseDate: string;

@@ -1,0 +1,7 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#e2e8f0" />
+  <g transform="translate(400,300) scale(15)">
+    <path d="M12,3v9.28c-0.47-0.17-0.97-0.28-1.5-0.28C8.01,12,6,14.01,6,16.5S8.01,21,10.5,21c2.31,0,4.2-1.75,4.45-4H15V6h4V3H12z" fill="#475569" transform="translate(-12, -12)" />
+  </g>
+  <text x="50%" y="80%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" fill="#475569">Music Project</text>
+</svg>
