@@ -3,6 +3,7 @@ import { GitHubIcon } from './icons/GitHubIcon';
 import { SoundCloudIcon } from './icons/SoundCloudIcon';
 import { BloggerIcon } from './icons/BloggerIcon';
 import { WbWordmarkIcon } from './icons/WbWordmarkIcon';
+import { EnvelopeIcon } from './icons/EnvelopeIcon';
 
 const socialLinks = [
   {
@@ -20,6 +21,11 @@ const socialLinks = [
     href: 'https://citycoinops.blogspot.com/',
     icon: BloggerIcon,
   },
+  {
+    name: 'Newsletter',
+    href: 'https://wobbleboxx.gumroad.com/subscribe',
+    icon: EnvelopeIcon,
+  }
 ];
 
 const Footer: React.FC = () => {

@@ -5,6 +5,7 @@ import { CATEGORY_STYLES } from '../constants';
 import NotFoundPage from './NotFoundPage';
 import { ArrowTopRightOnSquareIcon } from '../components/icons/ArrowTopRightOnSquareIcon';
 import { Category, Project } from '../types';
+import { BookOpenIcon } from '../components/icons/BookOpenIcon';
 
 const GAME_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M19,6H5C3.89,6 3,6.89 3,8V16C3,17.11 3.89,18 5,18H19C20.11,18 21,17.11 21,16V8C21,6.89 20.11,6 19,6M10,13H8V11H6V9H8V7H10V9H12V11H10V13M16,13H14V11H16V13M18,11H16V9H18V11Z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EGame Project%3C/text%3E%3C/svg%3E";
 const WRITING_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M18,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V4C20,2.9 19.1,2 18,2M18,20H6V4H7V12L9.5,10.5L12,12V4H18V20Z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EWriting Project%3C/text%3E%3C/svg%3E";
@@ -69,15 +70,18 @@ const ProjectDetailPage: React.FC = () => {
                 <div className="text-slate-200 font-medium text-sm mb-2">
                   {project.releaseDate}
                 </div>
-                {project.projectUrl && project.category === Category.GAME && (
+                {project.projectUrl && (project.category === Category.GAME || project.category === Category.WRITING) && (
                   <a
                     href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors"
                   >
-                    <ArrowTopRightOnSquareIcon className="h-5 w-5" />
-                    {isDevlog ? 'Read Devlog' : 'Open in Fullscreen'}
+                    {project.category === Category.GAME && <ArrowTopRightOnSquareIcon className="h-5 w-5" />}
+                    {project.category === Category.WRITING && <BookOpenIcon className="h-5 w-5" />}
+                    
+                    {project.category === Category.WRITING && 'Download Book'}
+                    {project.category === Category.GAME && (isDevlog ? 'Read Devlog' : 'Open in Fullscreen')}
                   </a>
                 )}
               </div>
@@ -87,14 +91,14 @@ const ProjectDetailPage: React.FC = () => {
 
         <div className="p-6 sm:p-8 lg:p-12">
           <div className="prose prose-lg max-w-none prose-slate prose-invert">
-            <p className="lead text-xl text-slate-300">{project.shortDescription}</p>
+            <p className="lead text-xl text-slate-300 mb-6">{project.shortDescription}</p>
             
             {project.longDescription.split(/\n\s*\n/).map((paragraph, index) => (
               <p key={index}>{paragraph.trim()}</p>
             ))}
           </div>
 
-          {project.projectUrl && !isDevlog && (
+          {project.projectUrl && !isDevlog && project.category !== Category.WRITING && (
             <div className="mt-10">
               <h2 className="text-2xl font-bold text-slate-200 mb-4">{isSoundCloud ? 'Listen Now' : 'Play It Live!'}</h2>
               {isSoundCloud ? (

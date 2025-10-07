@@ -1,6 +1,21 @@
+
 import { Project, Category } from '../types';
 
 export const projects: Project[] = [
+  {
+    id: 'liminale-zeilenzwischenraeume',
+    title: 'Liminale Zeilenzwischenräume',
+    category: Category.WRITING,
+    shortDescription: 'A German-language book exploring the quiet, often overlooked spaces in our lives, thoughts, and environments.',
+    coverImage: 'https://image2url.com/images/1759867002172-38615cfb-9be4-4e80-82fb-3dc8fa526ae3.png',
+    images: [],
+    longDescription: `A book written in German, "Liminale Zeilenzwischenräume" (roughly translated as "Liminal Spaces Between Lines") is an exploration of the moments in-between. It delves into the quiet, often overlooked spaces in our lives, thoughts, and environments, capturing the feeling of transition and ambiguity.
+
+This book is offered on a "name your price" model. You can download it by setting a price you feel is fair, with a minimum of $0.99 to help cover platform costs. Any additional support is deeply appreciated and directly contributes to future creative projects from the workshop. Thank you for reading!`,
+    releaseDate: 'October 2023',
+    tags: ['German', 'Book', 'Creative Writing', 'Name Your Price', 'Indie Publishing'],
+    projectUrl: 'https://wobbleboxx.gumroad.com/l/liminale_zeilenzwischenraeume',
+  },
   {
     id: 'city-coin-ops-devlog',
     title: 'City Coin-Ops Devlog',
@@ -37,22 +52,11 @@ Ready to test your mettle against the infinite? Sharpen your reflexes, manage yo
     projectUrl: 'https://stunning-kheer-33bbaa.netlify.app/',
   },
   {
-    id: 'the-last-scribe',
-    title: 'The Last Scribe',
-    category: Category.WRITING,
-    shortDescription: 'A fantasy novella about a librarian tasked with preserving knowledge in a world that has forgotten how to read.',
-    images: [],
-    longDescription: `In a world where magic has replaced the written word, The Last Scribe tells the story of Elara, the final curator of the Great Library of Aethel. When a creeping magical blight begins to erase memories and histories, Elara must embark on a perilous journey to find the source of literacy and restore the world's collective past.
-    
-This story explores themes of cultural memory, the power of stories, and the conflict between tradition and progress. It was a wonderful challenge to build a world where the act of reading and writing is a form of forbidden magic. The novella was self-published and has received positive reviews for its world-building and unique premise.`,
-    releaseDate: 'June 2022',
-    tags: ['Fantasy', 'Novella', 'World-Building', 'Self-Publishing'],
-  },
-  {
     id: 'nowyago',
     title: 'NowYaGo',
     category: Category.MUSIC,
     shortDescription: 'A high-energy electronic track with driving basslines and wobbly synths.',
+    coverImage: 'https://image2url.com/images/1759853916700-373739fc-c140-4883-a139-7bc927804848.jpg',
     images: [],
     longDescription: `An energetic electronic music piece from WobbleBoxx. "NowYaGo" features a driving beat, heavy bass, and signature synth sounds that create a dynamic and engaging listening experience. This track showcases a classic sound from the artist's earlier work.`,
     releaseDate: 'June 2011',
@@ -64,6 +68,7 @@ This story explores themes of cultural memory, the power of stories, and the con
     title: 'Time to evolution',
     category: Category.MUSIC,
     shortDescription: 'An evolving electronic track that builds in complexity and energy.',
+    coverImage: 'https://image2url.com/images/1759853881190-a554b8c8-ad70-401d-95c4-56b2edeec9f6.jpg',
     images: [],
     longDescription: `Another classic from WobbleBoxx, 'Time to evolution' takes the listener on a sonic journey. The track builds from a simple melodic idea into a complex and energetic arrangement, showcasing the artist's signature sound design and production style.`,
     releaseDate: 'May 2011',
@@ -75,6 +80,7 @@ This story explores themes of cultural memory, the power of stories, and the con
     title: 'Synth Core',
     category: Category.MUSIC,
     shortDescription: 'An energetic electronic track focused on powerful synth melodies.',
+    coverImage: 'https://image2url.com/images/1759853520293-2df005ff-6230-4208-9764-1ec1ebf20c4c.jpg',
     images: [],
     longDescription: `This track, "Synth Core," is a high-energy piece from WobbleBoxx. It features prominent, powerful synth melodies over a driving electronic beat, creating an intense and melodic experience for the listener.`,
     releaseDate: 'June 2013',
@@ -86,6 +92,7 @@ This story explores themes of cultural memory, the power of stories, and the con
     title: 'Rage Rave (Aggressive Ventilation)',
     category: Category.MUSIC,
     shortDescription: 'An aggressive and intense electronic track designed for high-energy moments.',
+    coverImage: 'https://image2url.com/images/1759853652085-76f5c79b-264c-46b6-bd03-9c155a4d0e13.jpg',
     images: [],
     longDescription: `This track, 'Rage Rave (Aggressive Ventilation),' is a powerful and aggressive electronic piece from WobbleBoxx. It's designed to be an intense auditory experience, perfect for high-energy moments and what the artist calls 'aggressive ventilation'.`,
     releaseDate: 'August 2013',
@@ -97,6 +104,7 @@ This story explores themes of cultural memory, the power of stories, and the con
     title: 'Holy Smoked Some',
     category: Category.MUSIC,
     shortDescription: 'A heavy-hitting track with a smoky, atmospheric vibe and intense bass drops.',
+    coverImage: 'https://image2url.com/images/1759853793360-0dba133b-1706-48f2-aff2-884ae0cf0b01.jpg',
     images: [],
     longDescription: `"Holy Smoked Some" delivers a potent mix of atmospheric pads and aggressive basslines. This WobbleBoxx track creates a dense, hazy soundscape before unleashing a powerful, rhythmically complex drop that's characteristic of the artist's style.`,
     releaseDate: 'August 2013',
@@ -108,6 +116,7 @@ This story explores themes of cultural memory, the power of stories, and the con
     title: 'Sunset Vibes (Feel Good Mix)',
     category: Category.MUSIC,
     shortDescription: 'An uplifting and melodic track with a warm, feel-good energy perfect for a summer evening.',
+    coverImage: 'https://image2url.com/images/1759853753129-a8c0fa38-2484-49cf-8509-2a948daa24bb.jpg',
     images: [],
     longDescription: `Capturing the warmth of a setting sun, "Sunset Vibes (Feel Good Mix)" is a departure into more melodic territory for WobbleBoxx. The track features bright synth leads, a smooth bassline, and a relaxed tempo, creating an uplifting and positive atmosphere.`,
     releaseDate: 'July 2013',

@@ -4,6 +4,7 @@ import ProjectCard from '../components/ProjectCard';
 import ProjectFilter from '../components/ProjectFilter';
 import { projects } from '../data/projects';
 import { Category } from '../types';
+import { EnvelopeIcon } from '../components/icons/EnvelopeIcon';
 
 const HomePage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<Category | 'All'>('All');
@@ -32,6 +33,22 @@ const HomePage: React.FC = () => {
                 It's a playground for creative experiments, driven by curiosity and a love for the craft.
             </p>
         </div>
+      </div>
+      
+      <div className="bg-slate-800/50 rounded-lg p-8 text-center border border-slate-700 animate-fade-in" style={{ opacity: 0, animationDelay: '100ms' }}>
+        <h2 className="text-2xl font-bold text-slate-100">Join the Workshop</h2>
+        <p className="mt-2 text-slate-400 max-w-2xl mx-auto">
+          Get occasional updates when new games, music, or stories are released. No spam, just creative experiments sent straight to your inbox.
+        </p>
+        <a 
+          href="https://wobbleboxx.gumroad.com/subscribe" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors"
+        >
+          <EnvelopeIcon className="h-5 w-5" />
+          Subscribe
+        </a>
       </div>
 
       <ProjectFilter 
