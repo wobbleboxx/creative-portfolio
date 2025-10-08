@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
@@ -26,6 +27,22 @@ const getCoverImageSrc = (project: Project) => {
     default:
       return 'data:image/svg+xml,%3Csvg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="100%" height="100%" fill="%231e293b" /%3E%3C/svg%3E';
   }
+};
+
+const formatDisplayDate = (dateString: string): string => {
+  if (dateString.toLowerCase() === 'ongoing') {
+    return 'Ongoing';
+  }
+  const parts = dateString.split('-');
+  if (parts.length !== 2) {
+    return dateString; // Fallback for unexpected formats
+  }
+  const [year, month] = parts;
+  const date = new Date(parseInt(year), parseInt(month) - 1);
+  if (isNaN(date.getTime())) {
+    return dateString; // Fallback for invalid date parts
+  }
+  return date.toLocaleString('en-US', { month: 'long', year: 'numeric' });
 };
 
 const ProjectDetailPage: React.FC = () => {
@@ -68,7 +85,7 @@ const ProjectDetailPage: React.FC = () => {
               </div>
               <div className="text-right flex-shrink-0">
                 <div className="text-slate-200 font-medium text-sm mb-2">
-                  {project.releaseDate}
+                  {formatDisplayDate(project.releaseDate)}
                 </div>
                 {project.projectUrl && (project.category === Category.GAME || project.category === Category.WRITING) && (
                   <a

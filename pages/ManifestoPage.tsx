@@ -14,7 +14,7 @@ const ManifestoPage: React.FC = () => {
     {
       icon: WobblyBoxIcon,
       title: 'Sound is Half the Experience',
-      text: "From wobbly basslines to crunchy sound effects, audio isn't an afterthought—it's a core building block of emotion and atmosphere. Every project is an excuse to make noise.",
+      text: "From wobbly basslines to crunchy sound effects, audio isn't an afterthought. It is a core building block of emotion and atmosphere. Every project is an excuse to make noise.",
     },
     {
       icon: SparklesIcon,
@@ -37,7 +37,7 @@ const ManifestoPage: React.FC = () => {
       <div className="prose prose-lg max-w-none prose-slate prose-invert">
         <h2>What is the Workshop?</h2>
         <p>
-          The WobbleBoxx Workshop is a digital playground. It's a one-person exploration into the worlds of game development, music production, and creative writing. It’s less of a brand and more of a personal commitment to the joy of making things—to tinkering, learning, and sharing the results.
+          The WobbleBoxx Workshop is a digital playground. It's a one-person exploration into the worlds of game development, music production, and creative writing. It’s less of a brand and more of a personal commitment to the joy of making things: tinkering, learning, and sharing the results.
         </p>
         <p>
           Everything you see here was built from a desire to create something new, to solve a puzzle, or to simply see if an idea would work. It's a testament to late nights, countless iterations, and the simple, powerful act of creative expression.

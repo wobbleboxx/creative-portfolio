@@ -1,25 +1,36 @@
+
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import ProjectFilter from '../components/ProjectFilter';
-import { projects } from '../data/projects';
+import { projects as unsortedProjects } from '../data/projects';
 import { Category } from '../types';
 import { EnvelopeIcon } from '../components/icons/EnvelopeIcon';
 
 const HomePage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<Category | 'All'>('All');
 
+  const sortedProjects = useMemo(() => {
+    return [...unsortedProjects].sort((a, b) => {
+      // Treat "Ongoing" as the most recent
+      const dateA = a.releaseDate.toLowerCase() === 'ongoing' ? '9999-12' : a.releaseDate;
+      const dateB = b.releaseDate.toLowerCase() === 'ongoing' ? '9999-12' : b.releaseDate;
+      // Sort descending
+      return dateB.localeCompare(dateA);
+    });
+  }, []);
+
   const categories: (Category | 'All')[] = useMemo(() => {
-    const allCategories = projects.map(p => p.category);
+    const allCategories = unsortedProjects.map(p => p.category);
     return ['All', ...Array.from(new Set(allCategories))];
   }, []);
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'All') {
-      return projects;
+      return sortedProjects;
     }
-    return projects.filter(project => project.category === activeFilter);
-  }, [activeFilter]);
+    return sortedProjects.filter(project => project.category === activeFilter);
+  }, [activeFilter, sortedProjects]);
 
   return (
     <div className="space-y-12">
@@ -29,7 +40,7 @@ const HomePage: React.FC = () => {
         </h1>
         <div className="mt-4 max-w-3xl mx-auto text-lg text-slate-400 space-y-4">
             <p>
-                Welcome to my digital workshop—a place for building strange games, composing wobbly tunes, and telling stories. 
+                Welcome to my digital workshop! A place for building strange games, composing wobbly tunes, and telling stories. 
                 It's a playground for creative experiments, driven by curiosity and a love for the craft.
             </p>
         </div>
