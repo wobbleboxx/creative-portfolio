@@ -1,4 +1,3 @@
-
 import { Project, Category } from '../types';
 
 export const projects: Project[] = [
@@ -27,6 +26,18 @@ This book is offered on a "name your price" model. You can download it by settin
     releaseDate: 'Ongoing',
     tags: ['Game Development', 'Devlog', 'Blogger', 'Indie Game'],
     projectUrl: 'https://citycoinops.blogspot.com/',
+  },
+    {
+    id: 'primitive-survival',
+    title: 'Primitive Survival: The Game',
+    category: Category.GAME,
+    shortDescription: 'A prototype survival game built with Godot 4, inspired by primitive technology. Craft tools, hunt for food, and survive the wilderness.',
+    coverImage: 'https://image2url.com/images/1759914607777-71e3e49a-6587-4213-9fea-09d4dafe01b4.png',
+    images: [],
+    longDescription: `This project was created in honor of Duong's inspiring YouTube series where he builds huts and a garden from scratch using only a machete. Watching the series was a great learning experience, and this game is an attempt to capture some of those lessons in an interactive format. While the primary goal was to learn the Godot engine, the project remains a bare prototype and was never fully developed.`,
+    releaseDate: '2024-04',
+    tags: ['Godot 4', 'Survival', 'Crafting', 'itch.io', 'Prototype'],
+    projectUrl: 'https://wobbleboxx.itch.io/primitive-survival-the-game',
   },
   {
     id: 'cosmic-plinko',
@@ -82,7 +93,7 @@ Ready to test your mettle against the infinite? Sharpen your reflexes, manage yo
     shortDescription: 'An energetic electronic track focused on powerful synth melodies.',
     coverImage: 'https://image2url.com/images/1759853520293-2df005ff-6230-4208-9764-1ec1ebf20c4c.jpg',
     images: [],
-    longDescription: `This track, "Synth Core," is a high-energy piece from WobbleBoxx. It features prominent, powerful synth melodies over a driving electronic beat, creating an intense and melodic experience for the listener.`,
+    longDescription: `This track, "Synth Core," is a high-energy piece from WobbleBoxx. It's features prominent, powerful synth melodies over a driving electronic beat, creating an intense and melodic experience for the listener.`,
     releaseDate: '2013-06',
     tags: ['Electronic', 'SoundCloud', 'Synthwave', 'Wobbleboxx'],
     projectUrl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/98120150&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',

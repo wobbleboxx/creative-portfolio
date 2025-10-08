@@ -4,6 +4,7 @@ import { SoundCloudIcon } from './icons/SoundCloudIcon';
 import { BloggerIcon } from './icons/BloggerIcon';
 import { WbWordmarkIcon } from './icons/WbWordmarkIcon';
 import { EnvelopeIcon } from './icons/EnvelopeIcon';
+import { ItchIoIcon } from './icons/ItchIoIcon';
 
 const socialLinks = [
   {
@@ -20,6 +21,11 @@ const socialLinks = [
     name: 'Blogger',
     href: 'https://citycoinops.blogspot.com/',
     icon: BloggerIcon,
+  },
+  {
+    name: 'Itch.io',
+    href: 'https://wobbleboxx.itch.io',
+    icon: ItchIoIcon,
   },
   {
     name: 'Newsletter',
