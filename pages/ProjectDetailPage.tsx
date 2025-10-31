@@ -11,6 +11,7 @@ import { ItchIoIcon } from '../components/icons/ItchIoIcon';
 const GAME_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M19,6H5C3.89,6 3,6.89 3,8V16C3,17.11 3.89,18 5,18H19C20.11,18 21,17.11 21,16V8C21,6.89 20.11,6 19,6M10,13H8V11H6V9H8V7H10V9H12V11H10V13M16,13H14V11H16V13M18,11H16V9H18V11Z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EGame Project%3C/text%3E%3C/svg%3E";
 const WRITING_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M18,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V4C20,2.9 19.1,2 18,2M18,20H6V4H7V12L9.5,10.5L12,12V4H18V20Z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EWriting Project%3C/text%3E%3C/svg%3E";
 const MUSIC_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M12,3v9.28c-0.47-0.17-0.97-0.28-1.5-0.28C8.01,12,6,14.01,6,16.5S8.01,21,10.5,21c2.31,0,4.2-1.75,4.45-4H15V6h4V3H12z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EMusic Project%3C/text%3E%3C/svg%3E";
+const VISUAL_FX_PLACEHOLDER_SVG = "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(12)'%3E%3Cpath d='M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a3.375 3.375 0 00-2.672-2.672L11.25 18l1.938-.648a3.375 3.375 0 002.672-2.672L16.25 13.5l.648 1.938a3.375 3.375 0 002.672 2.672L21.75 18l-1.938.648a3.375 3.375 0 00-2.672 2.672z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3EVisual FX Project%3C/text%3E%3C/svg%3E";
 
 const getCoverImageSrc = (project: Project) => {
   if (project.coverImage) {
@@ -24,6 +25,8 @@ const getCoverImageSrc = (project: Project) => {
       return WRITING_PLACEHOLDER_SVG;
     case Category.MUSIC:
       return MUSIC_PLACEHOLDER_SVG;
+    case Category.VISUAL_FX:
+      return VISUAL_FX_PLACEHOLDER_SVG;
     default:
       return 'data:image/svg+xml,%3Csvg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="100%" height="100%" fill="%231e293b" /%3E%3C/svg%3E';
   }
@@ -72,10 +75,12 @@ const ProjectContent: React.FC<{ project: Project }> = ({ project }) => {
     );
   }
   
-  if (project.projectUrl && project.category === Category.GAME) {
+  const isEmbeddable = project.category === Category.GAME || project.category === Category.VISUAL_FX;
+  if (project.projectUrl && isEmbeddable) {
+    const embedTitle = project.category === Category.GAME ? 'Play It Live!' : 'View It Live!';
     return (
       <div className="mt-10">
-        <h2 className="text-2xl font-bold text-slate-200 mb-4">Play It Live!</h2>
+        <h2 className="text-2xl font-bold text-slate-200 mb-4">{embedTitle}</h2>
         <div className="aspect-video w-full">
           <iframe
             src={project.projectUrl}
@@ -103,7 +108,7 @@ const ProjectDetailPage: React.FC = () => {
   
   const isItchGame = !!project.projectUrl?.includes('itch.io');
   const isDevlog = project.tags.includes('Devlog');
-  const showProjectLinkButton = project.projectUrl && (project.category === Category.GAME || project.category === Category.WRITING);
+  const showProjectLinkButton = project.projectUrl && (project.category === Category.GAME || project.category === Category.WRITING || project.category === Category.VISUAL_FX);
 
   let buttonIcon: React.ReactNode | null = null;
   let buttonText: string | null = null;
@@ -122,7 +127,11 @@ const ProjectDetailPage: React.FC = () => {
       buttonIcon = <ArrowTopRightOnSquareIcon className="h-5 w-5" />;
       buttonText = 'Open in Fullscreen';
     }
+  } else if (project.category === Category.VISUAL_FX) {
+      buttonIcon = <ArrowTopRightOnSquareIcon className="h-5 w-5" />;
+      buttonText = 'Open Visualization';
   }
+
 
   return (
     <div className="max-w-4xl mx-auto animate-fade-in" style={{ opacity: 0 }}>

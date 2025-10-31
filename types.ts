@@ -2,6 +2,7 @@ export enum Category {
   GAME = 'Game Development',
   MUSIC = 'Original Music',
   WRITING = 'Creative Writing',
+  VISUAL_FX = 'Visual FX',
   OTHER = 'Miscellaneous'
 }
 

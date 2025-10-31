@@ -2,6 +2,30 @@ import { Project, Category } from '../types';
 
 export const projects: Project[] = [
   {
+    id: 'voxel-box-editor',
+    title: 'Voxel Box Editor',
+    category: Category.VISUAL_FX,
+    shortDescription: 'A free, browser-based voxel editor for creating 3D pixel art. Build, save, and export your creations.',
+    coverImage: 'https://image2url.com/images/1761904375225-dbd59e80-cb2f-484a-b2dd-ca1a870de2bf.png',
+    images: [],
+    longDescription: `Voxel Box Editor is a simple yet powerful tool for creating 3D art directly in your web browser. Inspired by the blocky aesthetic of classic games and pixel art, this editor provides an intuitive interface to build anything you can imagine, one voxel at a time. It's completely free to use, and you can easily save your progress or export your models to use in other projects. Perfect for hobbyists, game developers, and anyone looking to dip their toes into 3D creation.`,
+    releaseDate: '2024-09',
+    tags: ['Voxel Art', '3D Modeling', 'Creative Tool', 'Web App', 'React'],
+    projectUrl: 'https://iridescent-lollipop-1b8107.netlify.app/',
+  },
+  {
+    id: 'golden-ratio-phyllotaxis',
+    title: 'Golden Ratio Seed Spender',
+    category: Category.VISUAL_FX,
+    shortDescription: 'A mesmerizing visualization of phyllotaxis, creating natural spiral patterns seen in sunflowers and pinecones.',
+    coverImage: 'https://image2url.com/images/1761904413748-c496f7ba-9f82-4095-ba45-4758ee0c3640.png',
+    images: [],
+    longDescription: `A mesmerizing visualization of phyllotaxis. A central emitter rotates and shoots seeds at the golden angle (≈137.5°), creating a natural spiral pattern seen in sunflowers and pinecones.`,
+    releaseDate: '2024-08',
+    tags: ['Creative Coding', 'Visualization', 'Generative Art', 'Math', 'p5.js'],
+    projectUrl: 'https://illustrious-bublanina-59b476.netlify.app/',
+  },
+  {
     id: 'liminale-zeilenzwischenraeume',
     title: 'Liminale Zeilenzwischenräume',
     category: Category.WRITING,

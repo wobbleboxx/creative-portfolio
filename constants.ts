@@ -1,4 +1,3 @@
-
 import { Category } from './types';
 
 export const CATEGORY_STYLES: { [key in Category]: { bg: string; text: string; border: string } } = {
@@ -16,6 +15,11 @@ export const CATEGORY_STYLES: { [key in Category]: { bg: string; text: string; b
     bg: 'bg-sky-100',
     text: 'text-sky-800',
     border: 'border-sky-300',
+  },
+  [Category.VISUAL_FX]: {
+    bg: 'bg-cyan-100',
+    text: 'text-cyan-800',
+    border: 'border-cyan-300',
   },
   [Category.OTHER]: {
     bg: 'bg-slate-100',
