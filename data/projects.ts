@@ -193,5 +193,25 @@ Ready to test your mettle against the infinite? Sharpen your reflexes, manage yo
     releaseDate: '2017-10',
     tags: ['Electronic', 'SoundCloud', 'Progressive', 'Wobbleboxx'],
     projectUrl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/367230194&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+  },
+  {
+    id: 'level-up-power-up-coin-get',
+    title: 'Level up, Power up, Coin get (13 Sounds)',
+    category: Category.GAME,
+    shortDescription: 'A free collection of 13 retro arcade sound effects released under CC0.',
+    coverImage: "data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%231e293b' /%3E%3Cg transform='translate(400,300) scale(15)'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z' fill='%2394a3b8' transform='translate(-12, -12)' /%3E%3C/g%3E%3Ctext x='50%25' y='85%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='24' fill='%2394a3b8'%3ESound Effects%3C/text%3E%3C/svg%3E",
+    images: [],
+    longDescription: `On November 16, 2014, I created 13 sounds and submitted them to OpenGameArt.org under the CC0 license.
+    
+This pack contains retro-style sound effects suitable for arcade games, platformers, or any project needing classic audio feedback. The sounds cover common game events:
+    
+- Level Up
+- Power Up
+- Coin Pickup / Item Get
+    
+Since they are CC0 (Creative Commons Zero), you are free to use them in personal or commercial projects without any requirements for attribution. Enjoy!`,
+    releaseDate: '2014-11',
+    tags: ['Sound Effects', 'OpenGameArt', 'CC0', 'Retro', 'Game Assets'],
+    projectUrl: 'https://opengameart.org/content/level-up-power-up-coin-get-13-sounds',
   }
 ];

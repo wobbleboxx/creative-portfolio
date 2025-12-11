@@ -108,7 +108,12 @@ const ProjectDetailPage: React.FC = () => {
   
   const isItchGame = !!project.projectUrl?.includes('itch.io');
   const isDevlog = project.tags.includes('Devlog');
-  const showProjectLinkButton = project.projectUrl && (project.category === Category.GAME || project.category === Category.WRITING || project.category === Category.VISUAL_FX);
+  const showProjectLinkButton = project.projectUrl && (
+    project.category === Category.GAME || 
+    project.category === Category.WRITING || 
+    project.category === Category.VISUAL_FX || 
+    project.category === Category.OTHER
+  );
 
   let buttonIcon: React.ReactNode | null = null;
   let buttonText: string | null = null;
@@ -130,6 +135,9 @@ const ProjectDetailPage: React.FC = () => {
   } else if (project.category === Category.VISUAL_FX) {
       buttonIcon = <ArrowTopRightOnSquareIcon className="h-5 w-5" />;
       buttonText = 'Open Visualization';
+  } else if (project.category === Category.OTHER) {
+      buttonIcon = <ArrowTopRightOnSquareIcon className="h-5 w-5" />;
+      buttonText = 'View Project';
   }
 
 
