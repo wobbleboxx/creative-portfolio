@@ -1,6 +1,27 @@
+
 import { Project, Category } from '../types';
 
 export const projects: Project[] = [
+  {
+    id: 'city-coin-ops',
+    title: 'City Coin Ops',
+    category: Category.GAME,
+    shortDescription: 'A vending and arcade machine tycoon game. Manage machines, stock, and explore the town.',
+    coverImage: 'https://image2url.com/images/1759837979269-289c7025-8e05-4908-9823-991693b1fc62.png',
+    images: [],
+    longDescription: `City Coin Ops is a vending and arcade machine tycoon game where players build their empire using different machines for vending items and playable arcade machines.
+    
+Key features include:
+- **Empire Building:** Strategically place machines to grow your business.
+- **Arcade & Vending Management:** Maintain arcade cabinets and vending machines to maximize revenue.
+- **Stock Management:** Keep your inventory levels high to satisfy customer demand.
+- **Town Exploration:** Explore the city to discover new locations and opportunities.
+
+This playable prototype marks the conclusion of the City Coin-Ops Devlog.`,
+    releaseDate: '2025-12',
+    tags: ['Tycoon', 'Simulation', 'Management', 'Web Game', 'Indie Game'],
+    projectUrl: 'https://citycoinops.netlify.app',
+  },
   {
     id: 'voxel-box-editor',
     title: 'Voxel Box Editor',
@@ -43,11 +64,11 @@ This book is offered on a "name your price" model. You can download it by settin
     id: 'city-coin-ops-devlog',
     title: 'City Coin-Ops Devlog',
     category: Category.GAME,
-    shortDescription: 'A development blog chronicling the creation of a new arcade-style game.',
+    shortDescription: 'A development blog chronicling the creation of the City Coin Ops tycoon game.',
     coverImage: 'https://image2url.com/images/1759837979269-289c7025-8e05-4908-9823-991693b1fc62.png',
     images: [],
-    longDescription: `Follow the journey of developing a new game from scratch. The City Coin-Ops devlog offers a behind-the-scenes look at the creative process, from initial concepts and design documents to programming challenges and art asset creation. This ongoing log provides insights into the world of indie game development.`,
-    releaseDate: 'Ongoing',
+    longDescription: `Follow the journey of developing 'City Coin Ops' from scratch. The devlog offers a behind-the-scenes look at the creative process, from initial concepts and design documents to programming challenges and art asset creation.`,
+    releaseDate: '2025-09 - 2025-12',
     tags: ['Game Development', 'Devlog', 'Blogger', 'Indie Game'],
     projectUrl: 'https://citycoinops.blogspot.com/',
   },
